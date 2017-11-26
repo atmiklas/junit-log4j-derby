@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true">
+
+	<appender name="dataAccessLogger" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="conversionPattern" value="%x %d %C %p %m %n" />
+		</layout>
+
+	</appender>
+
+	<appender name="DB" class="org.apache.log4j.jdbc.JDBCAppender">
+		<param name="URL" value="jdbc:derby://localhost:1527/sample;create=true" />
+		<param name="driver" value="org.apache.derby.jdbc.ClientDriver" />
+		<param name="user" value="user" />
+		<param name="password" value="user" />
+		<param name="sql" value="INSERT INTO LOGS VALUES('%x','%d{yyyy-MM-dd}','%C','%p','%m')" />
+	</appender>
+
+	<logger name="streams" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="dataAccessLogger" />
+		<appender-ref ref="DB" />
+	</logger>
+
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="dataAccessLogger" />
+	</root>
+
+</log4j:configuration>
