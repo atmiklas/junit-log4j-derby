@@ -1,5 +1,7 @@
 package streams.parallel.before;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -7,9 +9,13 @@ import org.apache.log4j.Logger;
  */
 public class Logging {
 
-    public static Logger LOGGER = Logger.getLogger("streams");
+    public static Logger LOGGER = Logger.getLogger("streams.parallel.before.Logging");
 
-    public static void main(String[] args) {
-    	LOGGER.info("Test");
+    public static void main(String[] args) throws InterruptedException {
+    
+    	while(true) {
+    		LOGGER.info("Test");
+    	    TimeUnit.SECONDS.sleep(1);	
+    	}
     }
 }

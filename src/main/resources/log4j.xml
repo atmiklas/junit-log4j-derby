@@ -6,7 +6,6 @@
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="conversionPattern" value="%x %d %C %p %m %n" />
 		</layout>
-
 	</appender>
 
 	<appender name="DB" class="org.apache.log4j.jdbc.JDBCAppender">
@@ -17,7 +16,7 @@
 		<param name="sql" value="INSERT INTO LOGS VALUES('%x','%d{yyyy-MM-dd}','%C','%p','%m')" />
 	</appender>
 
-	<logger name="streams" additivity="false">
+	<logger name="streams.parallel.before.Logging" additivity="false">
 		<level value="debug" />
 		<appender-ref ref="dataAccessLogger" />
 		<appender-ref ref="DB" />

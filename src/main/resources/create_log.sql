@@ -1,5 +1,5 @@
 -- create schema LOG4J
--- drop table USER.LOGS;
+-- drop table LOGS;
 CREATE TABLE LOGS
    (USER_ID VARCHAR(20)    NOT NULL,
     DATED   DATE           NOT NULL,
@@ -9,15 +9,5 @@ CREATE TABLE LOGS
 );
    
 
---
--- book 
--- drop table USER.LOGS;
-CREATE TABLE LOGGING_DATA
-("USER_ID" VARCHAR2(10) NOT NULL,
-"DATE" VARCHAR2(10) NOT NULL,
-"LOGGER" VARCHAR2(50) NOT NULL,
-"LEVEL" VARCHAR2(10) NOT NULL,
-"MESSAGE" VARCHAR2(1000) NOT NULL)
 
-
-select * from logs; 
+select * from LOGS; 
